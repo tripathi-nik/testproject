@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './rgister.module.css';
+import  './rgister.css';
 
 import RegisterForm from '../../component/registercomponent/Register';
 function Register(){
@@ -14,7 +14,7 @@ function Register(){
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                                 </div>
-                                 
+
                                 <RegisterForm/>
                                 <div class="text-center">
                                     <a class="small" href="forgot-password.html">Forgot Password?</a>

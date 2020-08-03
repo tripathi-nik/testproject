@@ -1,9 +1,9 @@
-import React,{Fragment,useEffect} from 'react';
-import {connect,useDispatch} from 'react-redux';
+import React from 'react';
+import {useDispatch} from 'react-redux';
 import {Formik} from 'formik';
 import * as Yup from 'yup';
 import {accountCreater} from '../../../action/agentAccount';
-const registerArr = [];
+
 const  Register = props =>{
     const dispatch = useDispatch();
     return(
@@ -22,7 +22,7 @@ const  Register = props =>{
            >
         {props=>{
         const {
-          values,touched,errors,isSubmitting,handleChange,handleBlur,handleSubmit,setFieldValue
+          touched,errors,handleChange,handleBlur,handleSubmit
         }=props;
         return(
                 <form class="user" onSubmit={handleSubmit}>
