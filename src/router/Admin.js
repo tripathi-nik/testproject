@@ -6,6 +6,7 @@ import {
 import Home from '../AppHome';
 import Administrator from '../admin/Administrator';
 import Register from '../admin/container/register/Register';
+import Login from '../admin/container/login/Login';
 export default function BasicExample() {
   return (
     <Switch>
@@ -14,6 +15,7 @@ export default function BasicExample() {
       </Route>
       <Route exact path="/admin/" component = {Administrator} />
       <Route exact path="/register/" component = {Register} />
+      <Route exact path="/login/" component = {Login} />
     </Switch>
   );
 }
