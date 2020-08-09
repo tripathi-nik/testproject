@@ -4,7 +4,7 @@ config.set({
       serverUrl: 'http://localhost:5000/',
    },
    production:{
-     serverUrl: 'http://localhost:5000/',
+     serverUrl: 'https://infinite-hamlet-52488.herokuapp.com/',
    },
    loadingImage: 'http://localhost/reactApi/wp-content/uploads/2020/05/4cf423dc7c2321aa9b733c20c53752b7.gif',
    agent_account_added: 'You are successfully registered with your account',
