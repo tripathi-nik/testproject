@@ -16,5 +16,7 @@ config.set({
    input_password_error: 'Password entered for the user is incorrect. Please check again',
    user_found_success: 'You are successfully login. Please wait while we are redirecting',
    success_toast_color: '#53ae61',
-   failure_toast_color: '#e580ba'
+   failure_toast_color: '#e580ba',
+   redirect_to_admin: ['register','login'],
+   secure_url: ['admin']
  });

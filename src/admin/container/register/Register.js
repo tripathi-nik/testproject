@@ -1,9 +1,10 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import  './rgister.css';
+import Redirection from '../../../config/header';
 
 import RegisterForm from '../../component/registercomponent/Register';
-function Register(){
+const Register = props => {
     return(
         <div className="container">
             <div className="card o-hidden border-0 shadow-lg my-5">
@@ -15,7 +16,7 @@ function Register(){
                                 <div className="text-center">
                                     <h1 className="h4 text-gray-900 mb-4">Create an Account!</h1>
                                 </div>
-
+                                <Redirection path={props.match.url}/>
                                 <RegisterForm/>
                                 <div className="text-center">
                                     <a className="small" href="forgot-password.html">Forgot Password?</a>

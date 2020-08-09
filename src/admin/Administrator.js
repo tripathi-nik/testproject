@@ -1,8 +1,10 @@
 import React,{Component,Fragment} from 'react';
+import Redirection from '../config/header';
 class Adiminstrator extends Component{
   render(){
     return(
       <Fragment>
+        <Redirection path={this.props.match.url}/>
         <div id="wrapper">
           <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
