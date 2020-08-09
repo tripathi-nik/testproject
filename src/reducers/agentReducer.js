@@ -14,7 +14,7 @@ const agentReducer = (state=data,action) =>{
      return{
        ...state,
        loading:null,
-       user_id:null,
+       status:null,
      }
       case 'agent_account':
       return{

@@ -17,8 +17,8 @@ const mapStateToProps = (state)=>{
   }
 }
 const checkRedirection = (history,url,dispatch) =>{
-  dispatch({type:'reset_data',payload:'reset'});
   setTimeout(() => {
+    dispatch({type:'reset_data',payload:'reset'});
    history.push(url);
  }, 4000);
 }
