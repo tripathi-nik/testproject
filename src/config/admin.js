@@ -17,6 +17,6 @@ config.set({
    user_found_success: 'You are successfully login. Please wait while we are redirecting',
    success_toast_color: '#53ae61',
    failure_toast_color: '#e580ba',
-   redirect_to_admin: ['register','login'],
+   redirect_to_admin: ['admin/register','admin/login'],
    secure_url: ['admin']
  });

@@ -22,7 +22,7 @@ const Register = props => {
                                     <a className="small" href="forgot-password.html">Forgot Password?</a>
                                 </div>
                                 <div className="text-center">
-                                    <Link to="/login" className="small">Already have an account? Login!</Link>
+                                    <Link to="/admin/login" className="small">Already have an account? Login!</Link>
                                 </div>
                             </div>
                         </div>

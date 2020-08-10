@@ -33,7 +33,8 @@ const agentReducer = (state=data,action) =>{
       }
       else{
         const {first_name,last_name,_id} = payload;
-        localStorage.setItem('account', {user_id:_id,first_name:first_name,last_name:last_name});
+        let items = {user_id:_id,first_name:first_name,last_name:last_name};
+        localStorage.setItem('account',JSON.stringify(items));
         err = null;
         stater = config.get('status_success');
       }

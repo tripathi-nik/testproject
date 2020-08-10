@@ -8,9 +8,9 @@ const Redirect = props =>{
   const current = props.path.replace('/','');
   const redirect_to_admin = config.get('redirect_to_admin');
   const secure_url = config.get('secure_url');
-  if(secure_url.includes(current)&&localStorage.getItem('account')==null)
+  if(secure_url.includes(current)&&localStorage.getItem('account')===null)
   {
-    history.push('/login');
+    history.push('/admin/login');
   }
   if(redirect_to_admin.includes(current)&&localStorage.getItem('account')){
     history.push('/admin');

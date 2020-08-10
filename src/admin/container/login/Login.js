@@ -28,7 +28,7 @@ class Login extends Component{
                         <a className="small" href="forgot-password.html">Forgot Password?</a>
                       </div>
                       <div className="text-center">
-                        <Link to="/register" className="small">Create an Account!</Link>
+                        <Link to="/admin/register" className="small">Create an Account!</Link>
                       </div>
                     </div>
                   </div>

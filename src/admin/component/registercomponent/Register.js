@@ -8,6 +8,8 @@ import classes from '../../account.module.css';
 import {accountCreater} from '../../../action/agentAccount';
 import Toast from '../../../toasts/ToastMessage';
 import { useHistory } from "react-router-dom";
+import axios from 'axios';
+
 
 const mapStateToProps = (state)=>{
   const acc = state.agent;
@@ -32,6 +34,7 @@ const  Register = props =>{
       checkRedirection(history,'/login',dispatch);
     }
     return(
+
         <Formik initialValues={{first_name:'',last_name:'',email_address:'',input_password:'',repeat_password:''}} onSubmit={(values, {setSubmitting})=>{
              dispatch({type:'add_loader',payload:'load'});
              dispatch(accountCreater(values));
@@ -64,11 +67,26 @@ const  Register = props =>{
           signup_button.current.removeAttribute('disabled');
           errors.email_address=config.get('unique_email_error');
         }
+        const onChange = ({target : { files }}) =>{
+          let data = new FormData();
+          data.append('myImage',files[0]);
+          const option = {
+            onUploadProgress :(progressEvent)=>{
+              const {loaded,total} = progressEvent;
+              let percent = Math.floor((loaded*100)/total);
+              console.log(`${percent}% completed`);
+            }
+          }
+          axios.post('http://localhost:5000/api/agent/media-upload',data,option).then(res=>{
+            console.log(res.data.path);
+           })
+        }
         return(
                 <form className="user" onSubmit={handleSubmit}>
                 <div className="form-group row">
                 {status===config.get('status_success')&&
                 <Toast message={config.get('agent_account_added')} show="show" state="true"/>}
+                 <input type="file" name="myImage" onChange= {onChange} />
                     <div className="col-sm-6 mb-3 mb-sm-0">
                         <input type="text" className="form-control form-control-user" id="first_name" name="first_name" placeholder="First Name" onChange={handleChange} onBlur={handleBlur}/>
                         {errors.first_name&&touched.first_name&&(
