@@ -1,0 +1,12 @@
+.arrowFactor::after{
+  content: '\f105';
+}
+.arrowFactor.arrow::after{
+  content: '\f107';
+}
+.arrowFactor{
+  padding-top: 4px
+}
+.card_height{
+  min-height: 440px
+}

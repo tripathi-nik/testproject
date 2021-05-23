@@ -1,0 +1,14 @@
+.mediaContainer li {
+    list-style-type: none;
+    display: inline-block;
+    margin-right: 21px;
+    margin-bottom: 20px;
+}
+sup{
+  vertical-align: top;
+}
+
+.btner{
+    padding: 0.1rem .3rem;
+    margin-top: 5px;
+}

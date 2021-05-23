@@ -20,10 +20,11 @@ const mapStateToProps = (state)=>{
 }
 
 const checkRedirection = (history,url,dispatch) =>{
-  setTimeout(() => {
+const timer = setTimeout(() => {
     dispatch({type:'reset_data',payload:'reset'});
    history.push(url);
  }, 4000);
+ return ()=>clearTimeout(timer);
 }
 
 const Login = props =>{
@@ -45,10 +46,9 @@ const Login = props =>{
       const {
         touched,errors,handleChange,handleBlur,handleSubmit
       }=props;
-      if(status===config.get('status_success')&&signup_button.current){
-        signup_button.current.setAttribute('disabled',true);
-        checkRedirection(history,'/admin',dispatch);
-      }
+       if(status===config.get('status_success')&&signup_button.current){
+         checkRedirection(history,'/admin',dispatch);
+       }
       let message = ""; let color = "";
 
       if(status===parseInt(config.get('status_failure'))){

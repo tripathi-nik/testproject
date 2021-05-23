@@ -1,10 +1,19 @@
 import React,{useState} from 'react';
+import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
+import config from 'react-global-configuration';
+import '../../../config/admin';
+const mapStateToProps = state =>{
+  const acc = state.agent;
+  return{
+    picture:acc.picture,
+  }
+}
 const Header = props =>{
   let testval = 'hidden';
   const [showA, setShowA] = useState(testval==='hidden'?true:false);
   const toggleShowA = () => setShowA(!showA);
-  const [firstName] = useState(localStorage.getItem('account')?JSON.parse(localStorage.getItem('account')).first_name+' '+JSON.parse(localStorage.getItem('account')).last_name:'');
+  const [firstName] = useState(localStorage.getItem('account')?JSON.parse(localStorage.getItem('account')).accounts.first_name+' '+JSON.parse(localStorage.getItem('account')).accounts.last_name:'');
   let classSetOne = ["nav-item","dropdown","no-arrow"];
   let classSetTwo = ["dropdown-menu","dropdown-menu-right","shadow","animated--grow-in"];
   if(showA===false){
@@ -51,13 +60,13 @@ const Header = props =>{
         <li className={classSetOne.join(" ")}>
           <button className="nav-link dropdown-toggle" style={{background:"none",border: "none"}} onClick={toggleShowA}>
             <span className="mr-2 d-none d-lg-inline text-gray-600 small">{firstName}</span>
-            <img className="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60" alt="user profile"/>
+            <img className="img-profile rounded-circle" src={props.picture&&props.picture!==null?config.get(''+config.get('env')+'.imagePath')+props.picture:config.get('dummy_image')} alt="user profile"/>
           </button>
           <div className={classSetTwo.join(" ")} aria-labelledby="userDropdown">
-            <a className="dropdown-item" href="index.html">
+            <Link className="dropdown-item" to="/admin/profile">
               <i className="fa fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
               Profile
-            </a>
+            </Link>
             <a className="dropdown-item" href="index.html">
               <i className="fa fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
               Settings
@@ -68,7 +77,7 @@ const Header = props =>{
             </a>
             <div className="dropdown-divider"></div>
             <Link className="dropdown-item" to="/admin/logout">
-              <i class="fa fa-sign-out fa-sm fa-fw mr-2 text-gray-400">::before</i>
+              <i className="fa fa-sign-out fa-sm fa-fw mr-2 text-gray-400"></i>
               Logout
             </Link>
           </div>
@@ -79,4 +88,4 @@ const Header = props =>{
     </nav>
   )
 }
-export default Header;
+export default connect(mapStateToProps)(Header);
