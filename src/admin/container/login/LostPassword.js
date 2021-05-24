@@ -1,9 +1,9 @@
 import React,{Component} from 'react';
 import {Link} from 'react-router-dom';
-import LoginForm from '../../component/logincomponent/Login';
+import PasswordLoss from '../../component/logincomponent/LostPassword';
 import Redirection from '../../../config/header';
 
-class Login extends Component{
+class LostPassword extends Component{
   render(){
     return(
       <div className="container">
@@ -18,16 +18,13 @@ class Login extends Component{
                   <div className="col-lg-6">
                     <div className="p-5">
                       <div className="text-center">
-                        <h1 className="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                        <h1 className="h4 text-gray-900 mb-4">Reset Your Password</h1>
                       </div>
                       <Redirection path={this.props.match.url}/>
-                       <LoginForm/>
+                       <PasswordLoss/>
                       <hr/>
                       <div className="text-center">
-                        <Link to="/admin/lost-password" className="small">Forgot Password?</Link>
-                      </div>
-                      <div className="text-center">
-                        <Link to="/admin/register" className="small">Create an Account!</Link>
+                        <Link to="/admin/login" className="small">Login</Link>
                       </div>
                     </div>
                   </div>
@@ -44,4 +41,4 @@ class Login extends Component{
     )
   }
 }
-export default Login;
+export default LostPassword;

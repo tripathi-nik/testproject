@@ -39,6 +39,24 @@ export const loginAction = (value)=>{
   }
 };
 
+export const lostPassword = (value)=>{
+  const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(value),
+  };
+  return(dispatch)=>{
+    fetch(config.get(''+env+'.serverUrl')+'api/agent/lostPassword',requestOptions)
+    .then(res=>res.json())
+    .then(res2=>{
+      console.log(res2);
+      //dispatch({type:'login_action',payload:res2});
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    })
+  }
+};
 
 export const fetchProfile = (value)=>{
   const requestOptions = {

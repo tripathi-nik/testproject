@@ -7,6 +7,7 @@ import Home from '../AppHome';
 import Administrator from '../admin/Administrator';
 import Register from '../admin/container/register/Register';
 import Login from '../admin/container/login/Login';
+import LostPassword from '../admin/container/login/LostPassword';
 import Logout from '../admin/Logout';
 import Profile from '../admin/container/agent_profile/Profile';
 import ProductEdit from '../admin/container/products/ProductEdit';
@@ -23,6 +24,7 @@ export default function BasicExample() {
       <Route exact path="/admin/" component = {Administrator} />
       <Route exact path="/admin/register/" component = {Register} />
       <Route exact path="/admin/login/" component = {Login} />
+      <Route exact path="/admin/lost-password/" component = {LostPassword} />
       <Route exact path="/admin/logout/" component = {Logout} />
       <Route exact path="/admin/profile/" component = {Profile} />
       <Route exact path="/admin/product-list/" component = {ProductList} />

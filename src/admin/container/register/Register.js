@@ -19,7 +19,7 @@ const Register = props => {
                                 <Redirection path={props.match.url}/>
                                 <RegisterForm/>
                                 <div className="text-center">
-                                    <a className="small" href="forgot-password.html">Forgot Password?</a>
+                                    <Link to="/admin/lost-password" className="small">Forgot Password?</Link>
                                 </div>
                                 <div className="text-center">
                                     <Link to="/admin/login" className="small">Already have an account? Login!</Link>
