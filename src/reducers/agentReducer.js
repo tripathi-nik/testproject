@@ -9,6 +9,8 @@ const data = {
   userDetail:null,
   center:"none",
   profileLoading: null,
+  toastMessage:null,
+  enableToast:false
 };
 const agentReducer = (state=data,action) =>{
   let {type,payload} = action;
@@ -98,6 +100,12 @@ const agentReducer = (state=data,action) =>{
 
       }
 
+      case 'toastIntent':
+      return{
+        toastMessage:payload.message,
+        enableToast:payload.display
+      }
+      
       default:
       return state
    }

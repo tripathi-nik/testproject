@@ -45,12 +45,12 @@ export const lostPassword = (value)=>{
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(value),
   };
-  return(dispatch)=>{
+ return(dispatch)=>{
     fetch(config.get(''+env+'.serverUrl')+'api/agent/lostPassword',requestOptions)
     .then(res=>res.json())
     .then(res2=>{
-      console.log(res2);
-      //dispatch({type:'login_action',payload:res2});
+      dispatch({type:'toastIntent',payload:{message:res2.message,display:true}});
+      dispatch({type:'add_loader',payload:null});
     })
     .catch(error => {
       console.error('Error:', error);

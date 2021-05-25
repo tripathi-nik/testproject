@@ -14,6 +14,8 @@ const mapStateToProps = (state)=>{
   const acc = state.agent;
   return{
     loading:acc.loading,
+    toastMessage:acc.toastMessage,
+    enableToast:acc.enableToast,
     status:acc.status,
     error:acc.error
   }
@@ -30,11 +32,11 @@ const timer = setTimeout(() => {
 const Login = props =>{
   const dispatch = useDispatch();
   const history = useHistory();
-  let {loading,status,error} = props;
+  let {loading,status,error,enableToast,toastMessage} = props;
   const signup_button = useRef();
   return(
     <Formik initialValues={{email_address:''}} onSubmit={(values, {setSubmitting})=>{
-          //dispatch({type:'add_loader',payload:'load'});
+          dispatch({type:'add_loader',payload:'load'});
           dispatch(lostPassword(values));
         }}
         validationSchema = {Yup.object().shape({
@@ -46,13 +48,19 @@ const Login = props =>{
         touched,errors,handleChange,handleBlur,handleSubmit
       }=props;
     return(
+
       <form className="user" onSubmit={handleSubmit}>
+      {enableToast===true&&
+      <Toast message={toastMessage} show="show" state="true"/>}
         <div className="form-group">
             <input type="email" className="form-control form-control-user" id="email_address" name="email_address" placeholder="Email Address" onChange={handleChange}  onBlur={handleBlur} />
             {errors.email_address&&touched.email_address&&(
               <div>{errors.email_address}</div>
             )}
         </div>
+        { loading==="load"&&
+         <img src={config.get('loadingImage')} className={classes.imageCss} alt="Loading.."/>
+        }
         <button className="btn btn-primary btn-user btn-block" type="submit" >Reset Your Password</button>
       </form>
       )
