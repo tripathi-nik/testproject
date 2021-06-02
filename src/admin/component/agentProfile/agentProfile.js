@@ -8,7 +8,7 @@ import {updateProfile} from '../../../action/agentAccount';
 import Toast from '../../../toasts/ToastMessage';
 
 const mapStateToProps = (state)=>{
-  const acc = state.agent;
+  const acc = state.agentReducer;
   return{
     detail:acc.userDetail,
     loading:acc.loading,

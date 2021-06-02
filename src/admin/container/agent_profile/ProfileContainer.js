@@ -7,7 +7,7 @@ import Innerfilled from './agentFilled';
 import config from 'react-global-configuration';
 import '../../../config/admin';
 const mapStateToProps = state =>{
-  const user = state.agent;
+  const user = state.agentReducer;
   return{
    profileLoading:user.profileLoading,
    center:user.center

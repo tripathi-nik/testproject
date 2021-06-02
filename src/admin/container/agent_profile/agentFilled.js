@@ -4,7 +4,7 @@ import Profile from '../../component/agentProfile/agentProfile';
 import Media from '../../component/MediaUpload/Media';
 
 const mapStateToProps = state =>{
-  const user = state.agent;
+  const user = state.agentReducer;
   return{
    userDetail:user.userDetail,
    center:user.center

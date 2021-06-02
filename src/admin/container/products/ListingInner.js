@@ -6,7 +6,7 @@ import {listProducts} from '../../../action/productManagement';
 import Moment from 'moment';
 
 const mapStateToProps = (state) =>{
-  const acc = state.product;
+  const acc = state.productReducer;
   return{
     loading:acc.loading,
     products:acc.products

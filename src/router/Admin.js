@@ -18,19 +18,19 @@ import ImageCropper from '../admin/container/products/App';
 export default function BasicExample() {
   return (
     <Switch>
-      <Route exact path="/">
-        <Home />
-      </Route>
+     <Route exact path="/">
+       <Home />
+     </Route>
       <Route exact path="/admin/" component = {Administrator} />
       <Route exact path="/admin/register/" component = {Register} />
       <Route exact path="/admin/login/" component = {Login} />
       <Route exact path="/admin/lost-password/" component = {LostPassword} />
       <Route exact path="/admin/logout/" component = {Logout} />
       <Route exact path="/admin/profile/" component = {Profile} />
+      <Route exact path="/admin/product/crop-image/" component = {ImageCropper} />
       <Route exact path="/admin/product-list/" component = {ProductList} />
       <Route exact path="/admin/products/edit/:slug" component = {ProductEdit} />
       <Route exact path="/admin/category/" component = {Category} />
-      <Route exact path="/admin/product/crop-image" component = {ImageCropper} />
     </Switch>
   );
 }

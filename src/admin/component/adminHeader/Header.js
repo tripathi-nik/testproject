@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import config from 'react-global-configuration';
 import '../../../config/admin';
 const mapStateToProps = state =>{
-  const acc = state.agent;
+  const acc = state.agentReducer;
   return{
     picture:acc.picture,
   }

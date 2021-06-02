@@ -11,7 +11,7 @@ import { useHistory } from "react-router-dom";
 
 
 const mapStateToProps = (state)=>{
-  const acc = state.agent;
+  const acc = state.agentReducer;
   return{
     loading:acc.loading,
     status:acc.status,

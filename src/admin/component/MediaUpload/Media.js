@@ -8,7 +8,7 @@ import '../../../config/admin';
 const token = localStorage.getItem('account')?JSON.parse(localStorage.getItem('account')).token:'';
 const env = !process.env.NODE_ENV || process.env.NODE_ENV === 'development'?'development':'production';
 const mapStateToProps = state =>{
-  const user = state.agent;
+  const user = state.agentReducer;
   return{
    picture:user.picture
   }
